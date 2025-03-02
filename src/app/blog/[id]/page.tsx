@@ -1,22 +1,16 @@
 import { fetchBlog } from "@/lib/api";
 import BlogDetails from "@/components/BlogDetails";
 
-interface BlogPageProps {
-  params: { id: string };
+interface BlogPageParams {
+  params: Promise<{ id: string }>;
 }
 
-const BlogPage = async ({ params }: BlogPageProps) => {
-  const id = parseInt(params.id, 10);
+export default async function BlogPage({ params }: BlogPageParams) {
+  const resolvedParams = await params;
 
-  if (isNaN(id)) {
-    return (
-      <div className="text-center text-red-500 text-xl font-semibold mt-10">
-        Blog not found
-      </div>
-    );
-  }
+  const blogId = Number(resolvedParams.id);
 
-  const blog = await fetchBlog(id);
+  const blog = await fetchBlog(blogId);
 
   if (!blog) {
     return (
@@ -27,6 +21,4 @@ const BlogPage = async ({ params }: BlogPageProps) => {
   }
 
   return <BlogDetails blog={blog} />;
-};
-
-export default BlogPage;
+}

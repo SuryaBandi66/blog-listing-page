@@ -1,20 +1,21 @@
-import Pagination from "../components/Pagination";
-import { BlogData, fetchBlogs } from "../lib/api";
-import Banner from "../components/Banner";
-import BlogGrid from "../components/BlogGrid";
+import Banner from "@/components/Banner";
+import BlogGrid from "@/components/BlogGrid";
+import Pagination from "@/components/Pagination";
+import { BlogData, fetchBlogs } from "@/lib/api";
 
 interface BlogListingProps {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 }
 
 const BlogListing = async ({ searchParams }: BlogListingProps) => {
-  const page = parseInt(searchParams.page || "1", 10);
+  const params = await searchParams;
+
+  const page = parseInt(params.page || "1", 10);
   const PAGE_LIMIT = 9;
   const offset = (page - 1) * PAGE_LIMIT;
 
   const { photos: blogs, total_photos: totalBlogs }: BlogData =
     await fetchBlogs(offset, PAGE_LIMIT);
-
   const totalPages = Math.ceil(totalBlogs / PAGE_LIMIT);
 
   return (
