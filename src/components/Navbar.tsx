@@ -1,8 +1,15 @@
+import Link from "next/link";
+
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 sticky top-0">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="text-2xl font-semibold text-white"> Blog</div>
+        <Link
+          href="/"
+          className="text-2xl font-semibold text-white cursor-pointer"
+        >
+          Blog
+        </Link>{" "}
         <div className="flex space-x-4">
           <a href="#" className="text-gray-300 hover:text-white">
             About us
