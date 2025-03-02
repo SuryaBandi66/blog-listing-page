@@ -2,11 +2,11 @@ import { fetchBlog } from "@/lib/api";
 import BlogDetails from "@/components/BlogDetails";
 
 interface BlogPageParams {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ id?: string }>;
 }
-
-export default async function BlogPage({ params }: BlogPageParams) {
-  const resolvedParams = await params;
+export default async function BlogPage({ searchParams }: BlogPageParams) {
+  const resolvedParams = await searchParams;
 
   const blogId = Number(resolvedParams.id);
 

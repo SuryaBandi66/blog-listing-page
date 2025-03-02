@@ -8,7 +8,14 @@ interface BlogCardProps {
 
 const BlogCard = ({ blog }: BlogCardProps) => (
   <div className="bg-white border rounded-lg shadow hover:shadow-md transition-shadow duration-200 p-6">
-    <Link href={`/blog/${blog.id}`} className="block">
+    <Link
+      href={{
+        pathname: `/blog/${blog.title.replace(/\s+/g, "-").toLowerCase()}`,
+        query: { id: blog.id },
+      }}
+      className="block"
+      prefetch={false}
+    >
       <div className="transition-transform duration-300 transform hover:scale-105">
         <Image
           src={blog.url}

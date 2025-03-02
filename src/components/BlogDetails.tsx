@@ -4,6 +4,10 @@ interface BlogDetailsProps {
   blog: {
     id: number;
     title: string;
+    content_short?: string;
+    photo_url: string;
+    slug: string;
+    content_body?: string;
     url: string;
     description: string;
   };
