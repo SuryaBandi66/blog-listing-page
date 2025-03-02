@@ -1,17 +1,14 @@
 import { fetchBlog } from "@/lib/api";
+import BlogDetails from "@/components/BlogDetails";
 
-interface SingleBlog {
-  id: number;
-  title: string;
-  slug: string;
-  url: string;
-  description: string;
+interface BlogPageProps {
+  params: { id: string };
 }
 
-const BlogPage = async ({ params }: { params: { id: number } }) => {
-  const { id } = params;
+const BlogPage = async ({ params }: BlogPageProps) => {
+  const id = parseInt(params.id, 10);
 
-  if (!id) {
+  if (isNaN(id)) {
     return (
       <div className="text-center text-red-500 text-xl font-semibold mt-10">
         Blog not found
@@ -19,7 +16,7 @@ const BlogPage = async ({ params }: { params: { id: number } }) => {
     );
   }
 
-  const blog: SingleBlog = await fetchBlog(id);
+  const blog = await fetchBlog(id);
 
   if (!blog) {
     return (
@@ -29,29 +26,7 @@ const BlogPage = async ({ params }: { params: { id: number } }) => {
     );
   }
 
-  return (
-    <div className="container mx-auto px-4 py-10 max-w-3xl">
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-6 text-center">
-        {blog.title}
-      </h1>
-
-      <div className="w-full">
-        <img
-          src={blog.url}
-          alt={blog.title}
-          className="w-full h-96 object-cover rounded-xl shadow-lg"
-        />
-      </div>
-
-      <div className="mt-6 text-lg text-gray-700 leading-relaxed">
-        <div dangerouslySetInnerHTML={{ __html: blog.description }} />
-      </div>
-
-      <div className="mt-8 text-center text-gray-500 text-sm">
-        Published on {new Date().toLocaleDateString()}
-      </div>
-    </div>
-  );
+  return <BlogDetails blog={blog} />;
 };
 
 export default BlogPage;

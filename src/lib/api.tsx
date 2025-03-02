@@ -18,8 +18,11 @@ export async function fetchBlogs(
   offset: number,
   limit: number
 ): Promise<BlogData> {
+  console.log("🚀 ~ offset:", offset);
+  console.log("🚀 ~ limit:", limit);
+
   const response = await fetch(
-    `https://api.slingacademy.com/v1/sample-data/photos??offset=${offset}&limit=${limit}`
+    `https://api.slingacademy.com/v1/sample-data/photos?offset=${offset}&limit=${limit}`
   );
 
   if (!response.ok) {
