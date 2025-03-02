@@ -14,6 +14,7 @@ const BlogListing = async ({ searchParams }: BlogListingProps) => {
 
   const { photos: blogs, total_photos: totalBlogs }: BlogData =
     await fetchBlogs(offset, PAGE_LIMIT);
+
   const totalPages = Math.ceil(totalBlogs / PAGE_LIMIT);
 
   return (

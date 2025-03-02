@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BlogData } from "../lib/api";
 
 interface BlogCardProps {
@@ -9,9 +10,11 @@ const BlogCard = ({ blog }: BlogCardProps) => (
   <div className="bg-white border rounded-lg shadow hover:shadow-md transition-shadow duration-200 p-6">
     <Link href={`/blog/${blog.id}`} className="block">
       <div className="transition-transform duration-300 transform hover:scale-105">
-        <img
+        <Image
           src={blog.url}
           alt={blog.title}
+          width={600}
+          height={400}
           className="w-full h-64 object-cover rounded-md mb-4"
         />
       </div>

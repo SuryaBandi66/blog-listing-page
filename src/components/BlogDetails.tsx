@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface BlogDetailsProps {
   blog: {
     id: number;
@@ -15,9 +17,11 @@ const BlogDetails = ({ blog }: BlogDetailsProps) => {
       </h1>
 
       <div className="w-full">
-        <img
+        <Image
           src={blog.url}
           alt={blog.title}
+          width={800}
+          height={384}
           className="w-full h-96 object-cover rounded-xl shadow-lg"
         />
       </div>
