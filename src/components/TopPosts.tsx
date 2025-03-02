@@ -31,7 +31,12 @@ export default async function TopPosts() {
             />
 
             <Link
-              href={`/blog/${blog.id}`}
+              href={{
+                pathname: `/blog/${blog.title
+                  .replace(/\s+/g, "-")
+                  .toLowerCase()}`,
+                query: { id: blog.id },
+              }}
               className="text-blue-700 text-sm font-semibold hover:underline"
             >
               {blog.title}
