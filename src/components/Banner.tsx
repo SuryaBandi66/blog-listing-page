@@ -1,8 +1,8 @@
 const Banner = () => (
   <div
-    className="bg-cover bg-center h-96 mb-8"
+    className="w-full h-96 bg-cover bg-center"
     style={{
-      backgroundImage: `url('https://idea-usher-blog.s3.ap-south-1.amazonaws.com/premium_photo-1675437553489-0ddf979f299a.avif')`,
+      backgroundImage: `url('https://idea-usher-blog.s3.ap-south-1.amazonaws.com/homepage.webp')`,
     }}
   />
 );
