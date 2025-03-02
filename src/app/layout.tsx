@@ -2,6 +2,7 @@
 import { Metadata } from "next";
 import "../../src/app/globals.css";
 import Header from "../components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "My Blog App",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className="debug-screens">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
