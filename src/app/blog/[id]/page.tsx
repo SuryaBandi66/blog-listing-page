@@ -1,5 +1,5 @@
 import { fetchBlog } from "@/lib/api";
-import BlogDetails from "@/components/BlogDetails";
+import BlogDetails from "@/components/BlogDetails/BlogDetails";
 
 interface BlogPageParams {
   params: Promise<{ slug: string }>;

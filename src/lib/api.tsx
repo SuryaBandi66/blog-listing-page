@@ -57,3 +57,11 @@ export async function fetchTopBlogs(limit = 5): Promise<Blog[]> {
   );
   return data.photos;
 }
+
+export async function fetchRecentBlogs(limit = 5): Promise<Blog[]> {
+  const data = await fetchData<{ photos: Blog[] }>(
+    `?offset=24&limit=${limit}`,
+    "no-store"
+  );
+  return data.photos;
+}

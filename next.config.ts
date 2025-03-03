@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
-    domains: ["api.slingacademy.com"],
+    domains: [
+      "api.slingacademy.com",
+      "idea-usher-blog.s3.ap-south-1.amazonaws.com",
+    ],
   },
 };
 
