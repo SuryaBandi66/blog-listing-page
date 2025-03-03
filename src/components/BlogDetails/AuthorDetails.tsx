@@ -13,7 +13,7 @@ const AuthorDetails = () => {
           className="rounded-full shadow-md"
         />
         <div>
-          <h3 className="text-md font-semibold">John Doe</h3>
+          <h3 className="text-md font-semibold">Mark Twain</h3>
           <p className="text-sm text-gray-600">Tech Writer & Blogger</p>
         </div>
       </div>
