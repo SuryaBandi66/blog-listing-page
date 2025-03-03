@@ -7,7 +7,7 @@ interface PaginationProps {
 }
 
 const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
-  const visiblePages = 5; // Number of visible page numbers (excluding ellipsis)
+  const visiblePages = 5;
   const halfVisible = Math.floor(visiblePages / 2);
 
   let startPage = Math.max(currentPage - halfVisible, 1);
