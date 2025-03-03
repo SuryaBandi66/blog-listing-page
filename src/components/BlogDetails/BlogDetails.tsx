@@ -18,19 +18,21 @@ interface BlogDetailsProps {
 
 const BlogDetails = ({ blog }: BlogDetailsProps) => {
   return (
-    <div className="container mx-auto px-6 py-12 max-w-7xl grid grid-cols-12 gap-12">
-      <aside className="col-span-3">
-        <BackToBlogs />
-        <AuthorDetails />
-      </aside>
+    <div className="container mx-auto px-6 py-12 max-w-7xl">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <aside className="md:col-span-3 space-y-6">
+          <BackToBlogs />
+          <AuthorDetails />
+        </aside>
 
-      <div className="col-span-6">
-        <BlogContent blog={blog} />
+        <div className="md:col-span-6">
+          <BlogContent blog={blog} />
+        </div>
+
+        <aside className="md:col-span-3">
+          <RecentPosts />
+        </aside>
       </div>
-
-      <aside className="col-span-3">
-        <RecentPosts />
-      </aside>
     </div>
   );
 };
